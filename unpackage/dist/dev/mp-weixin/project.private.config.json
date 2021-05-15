@@ -1,0 +1,84 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "查件页面",
+          "pathName": "pages/checkSite/checkSite",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "预约寄件页面",
+          "pathName": "pages/appoint/appoint",
+          "query": "type={\"ix\":\"1\"}&obj={\"ma_id\":\"2\",\"weixin_openid\":\"o_lCq5TGiXhc6XJmCK2eY3rkKvNk\",\"ma_receiver\":\"yls\",\"ZoneID\":\"1089\",\"zoneName\":\"安徽省_淮北市_烈山区\",\"ma_address\":\"asdasdas\",\"ma_company\":\"\",\"ma_postCode\":\"\",\"ma_Mobile\":\"18229718536\",\"ma_email\":\"\",\"m_type\":\"2\"}",
+          "scene": null
+        },
+        {
+          "name": "地址簿",
+          "pathName": "pages/address/address",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "编辑地址页面",
+          "pathName": "pages/editaddress/editaddress",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "列表页面",
+          "pathName": "pages/checkSite/checkSite",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单列表",
+          "pathName": "pages/orderlist/orderlist",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/orderlist/orderlist",
+          "pathName": "pages/orderlist/orderlist",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "物流页面",
+          "pathName": "pages/logisticsinfo/logisticsinfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录页面",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "picker",
+          "pathName": "pages/picker/picker",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的预约",
+          "pathName": "pages/sendThing/sendThing",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

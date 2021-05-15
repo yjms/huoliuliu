@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的预约寄件",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "nodata": "/pages/components/nodata"
+  }
+}

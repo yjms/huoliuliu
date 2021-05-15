@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "地址管理",
+  "usingComponents": {
+    "nodata": "/pages/components/nodata"
+  }
+}

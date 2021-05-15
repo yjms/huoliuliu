@@ -1,0 +1,6 @@
+.flexCenter{display: flex;align-items: center;justify-content: center;}
+.boxSize{box-sizing: border-box;}
+.overflowTxt{overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+.flex1{flex: 1;}
+
+	

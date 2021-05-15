@@ -1,0 +1,367 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.bgWhile {
+  background-color: #FFFFFF;
+}
+.row {
+  width: 100%;
+  padding: 0 28rpx;
+  box-sizing: border-box;
+}
+.row1 {
+  width: calc(100vw - 56rpx);
+  margin: 0 auto;
+}
+.flex_row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  box-sizing: border-box;
+}
+.flex_col {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  box-sizing: border-box;
+}
+.whole {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.header {
+  width: 694rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: fixed;
+  left: 50%;
+  top: 20rpx;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  box-sizing: border-box;
+}
+.iptBox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 615rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background-color: #F7F7F7;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 0 28rpx;
+  box-sizing: border-box;
+}
+.iptBox > input {
+  margin-left: 12rpx;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  font-size: 28rpx;
+}
+.navBox {
+  width: 100%;
+  padding-bottom: 6rpx;
+  padding-top: 130rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  border-bottom: 2rpx solid #F2F2F2;
+  box-sizing: border-box;
+}
+.navBox > .navItem {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  padding-bottom: 20rpx;
+  font-size: 34rpx;
+  color: #888;
+}
+.navBox > .active {
+  color: #5393FD;
+  position: relative;
+}
+.navBox > .active::before {
+  content: "";
+  width: 100%;
+  height: 4rpx;
+  background-color: #5393FD;
+  position: absolute;
+  bottom: 0;
+}
+.navTime {
+  width: 100%;
+  height: 108rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.navTime > .timeItem {
+  width: 20%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  color: #333;
+  height: 60rpx;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+  background-color: #F2F2F2;
+}
+.navTime > .active {
+  color: #5393FD;
+  background-color: #EDF3FE;
+}
+.kjList {
+  width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  background-color: #F2F2F2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.kjList > .nodata {
+  font-size: 80rpx;
+  color: #ddd;
+}
+.kjList > .noText {
+  font-size: 32rpx;
+  color: #ddd;
+}
+.seachIcon {
+  font-size: 52rpx;
+  color: #999;
+}
+.saoma {
+  font-size: 46rpx;
+  margin-left: 18rpx;
+}
+.header > .searchTxt {
+  color: #888;
+  font-size: 30rpx;
+  margin-left: 2rpx;
+  border: 8rpx solid #FFFFFF;
+}
+.setbg {
+  background-color: #F2F2F2;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.ydList {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  padding-top: 18rpx;
+  box-sizing: border-box;
+}
+.yditem {
+  width: 100%;
+  padding: 24rpx 0 18rpx 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 18rpx;
+  font-size: 28rpx;
+}
+.yditem .icon-fuzhicopy12 {
+  font-size: 34rpx;
+  padding-left: 6rpx;
+  color: #888;
+}
+.yditem > .ydHeader {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.arive {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin: 18rpx 0;
+}
+.arive > view {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.arrcenter > image {
+  width: 120rpx;
+  height: 20rpx;
+  object-fit: cover;
+}
+.setmar {
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+.towRow {
+  color: #888;
+  margin-top: 10rpx;
+}
+.cityName {
+  color: #000;
+  font-size: 36rpx;
+}
+.statusBox {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  color: #777;
+}
+.statusBox .rigTxt {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  text-align: justify;
+  padding: 0 18rpx;
+  box-sizing: border-box;
+}
+.shink {
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+}
+.timebox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  color: #777;
+  margin: 18rpx 0;
+  border-bottom: 1rpx solid #dedede;
+  padding-bottom: 18rpx;
+}
+.ydFoot {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+}
+.ydFoot .share, .ydFoot .del {
+  width: 160rpx;
+  height: 60rpx;
+  border: 1rpx solid #dedede;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  color: #666;
+  border-radius: 35rpx;
+  margin-right: 18rpx;
+}
+.ydFoot .del {
+  margin-right: 26rpx;
+}
+.setwid {
+  width: 120rpx;
+}
+.setpad {
+  padding: 0 18rpx;
+}
+

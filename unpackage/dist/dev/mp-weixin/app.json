@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/checklogistics/checklogistics",
+    "pages/checkSite/checkSite",
+    "pages/appoint/appoint",
+    "pages/address/address",
+    "pages/editaddress/editaddress",
+    "pages/orderlist/orderlist",
+    "pages/logisticsinfo/logisticsinfo",
+    "pages/login/login",
+    "pages/picker/picker",
+    "pages/sendThing/sendThing"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "华秀物流",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "permission": {},
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}
