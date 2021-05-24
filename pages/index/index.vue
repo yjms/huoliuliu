@@ -8,7 +8,7 @@
 				<view class="iconBox iconfont icon-yuyue">
 				</view>
 				<view class="titleBox" @click="jump(1)">
-				   <text class="itemTitle">预约寄件</text>
+				   <text class="itemTitle">下单寄件</text>
 				   <text class="itemDle">支持2小时上门取件</text>
 				</view>
 			</view>
@@ -18,7 +18,7 @@
 					
 				</view>
 				<view class="titleBox" @click="jump('other')">
-				   <text class="itemTitle">我的寄件</text>
+				   <text class="itemTitle">寄件查询</text>
 				   <text class="itemDle">查看预约寄件</text>
 				</view>
 			</view>
@@ -28,7 +28,7 @@
 					
 				</view>
 				<view class="titleBox" @click="jump(2)">
-				   <text class="itemTitle">查询物流</text>
+				   <text class="itemTitle">物流轨迹</text>
 				   <text class="itemDle">快捷查询物流</text>
 				</view>
 			</view>
@@ -38,28 +38,28 @@
 					
 				</view>
 				<view class="titleBox" @click="jump(3)">
-				   <text class="itemTitle">查看库存</text>
-				   <text class="itemDle">查看库存总量</text>
+				   <text class="itemTitle">仓库地址</text>
+				   <text class="itemDle">查看仓库地址</text>
 				</view>
 			</view>
-			
+		<!-- 	
 			<view class="items">
 				<view class="iconBox iconfont icon-mingxi">
 					
 				</view>
 				<view class="titleBox" @click="jump(4)">
-				   <text class="itemTitle">发货明细</text>
-				   <text class="itemDle">查询发货明细</text>
+				   <text class="itemTitle">违禁品</text>
+				   <text class="itemDle">违禁品查询</text>
 				</view>
-			</view>
+			</view> -->
 			
 			<view class="items">
 				<view class="iconBox iconfont icon-zhangdan">
 					
 				</view>
 				<view class="titleBox" @click="jump(5)">
-				   <text class="itemTitle">查看账单</text>
-				   <text class="itemDle">在线查看账单</text>
+				   <text class="itemTitle">违禁品</text>
+				   <text class="itemDle">违禁品查询</text>
 				</view>
 			</view>
 			
@@ -111,6 +111,9 @@
 		},
 		created(){
 			// this.$tool.set
+			let array = [1, 2, 3, 4];
+			let set = new Set(array);
+			console.log("set",set)
 		},
 		mounted(){
 			// console.log(this.$api)
@@ -125,7 +128,7 @@
 					uni.login({
 						success(res){
 							let dat = {
-								functionType:22,
+								functionType:38,
 								Code:res.code
 							}
 							that.$api(dat).then(res=>{
@@ -144,8 +147,8 @@
 				// console.log(nav);
 				this.$tool.setstorage("pram","");
 				this.$tool.setstorage("pram2","");
-				let kh_id = this.$tool.getstorage("xykh_id");
-				if((nav == 3 || nav == 4 || nav == 5 || nav=="other") && !kh_id ){ // 查看库存 和发货明细需要登录
+				let userinfo = this.$tool.getstorage("userInfo");
+				if(nav=="other"&& !userinfo ){ // 查看库存 和发货明细需要登录
 					this.$tool.jump_nav("/pages/login/login")
 					return
 				}

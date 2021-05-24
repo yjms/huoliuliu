@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "rulepop": "/pages/components/Rulepop/Rulepop"
+  }
+}

@@ -1,0 +1,253 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.whole.data-v-f4e005f4 {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  background-color: #F2F2F2;
+}
+.headerBox.data-v-f4e005f4 {
+  width: 100%;
+  padding: 0 38rpx;
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  height: 100rpx;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  box-sizing: border-box;
+}
+.headerBox .iptBox.data-v-f4e005f4 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  margin-right: 30rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 28rpx;
+  color: #888;
+  background-color: #F2F2F2;
+  border-radius: 8rpx;
+  height: 62rpx;
+  padding: 0 18rpx;
+  box-sizing: border-box;
+}
+.headerBox .iptBox .icon-chaxun.data-v-f4e005f4 {
+  font-size: 46rpx;
+}
+.headerBox .iptBox input.data-v-f4e005f4 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  margin-left: 15rpx;
+}
+.addBox.data-v-f4e005f4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  color: #666;
+  font-size: 28rpx;
+}
+.addBox .addicon.data-v-f4e005f4 {
+  width: 40rpx;
+  height: 40rpx;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-right: 8rpx;
+  line-height: 36rpx;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  font-size: 40rpx;
+  background-color: #5393FD;
+  border-radius: 50%;
+}
+.shoplist.data-v-f4e005f4 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  margin-top: 14rpx;
+  background-color: #FFFFFF;
+}
+.shoplist .shopItem.data-v-f4e005f4 {
+  width: 100%;
+  position: relative;
+  height: 200rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  padding: 20rpx 37rpx 20rpx 24rpx;
+  box-sizing: border-box;
+}
+.shopItem > .title.data-v-f4e005f4 {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.shopItem > .addshop.data-v-f4e005f4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 28rpx;
+  margin: 20rpx 0;
+  color: #888;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.shopItem > .addshop .addicon.data-v-f4e005f4 {
+  width: 40rpx;
+  height: 40rpx;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-right: 8rpx;
+  line-height: 36rpx;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  font-size: 40rpx;
+  background-color: #5393FD;
+  border-radius: 50%;
+}
+.addshop > .right.data-v-f4e005f4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.addshop > .right input.data-v-f4e005f4 {
+  width: 130rpx;
+  text-align: center;
+  height: 40rpx;
+  font-size: 26rpx;
+  margin: 0 10rpx;
+  background-color: #F2F2F2;
+  border-radius: 8rpx;
+}
+.priceTxt.data-v-f4e005f4 {
+  color: #888;
+  font-size: 28rpx;
+}
+.shoplist > .shopItem.data-v-f4e005f4::after {
+  content: "";
+  width: 700rpx;
+  height: 1rpx;
+  background-color: #F2F2F2;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.footBox.data-v-f4e005f4 {
+  position: fixed;
+  width: 100%;
+  height: 120rpx;
+  background-color: #FFFFFF;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.footBox .txtBox.data-v-f4e005f4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  font-size: 30rpx;
+  color: #333;
+}
+.footBox .txtBox .colTxt.data-v-f4e005f4 {
+  color: #5393FD;
+  font-weight: bold;
+  margin: 0 3rpx;
+}
+.footBox .txtBox .setmar.data-v-f4e005f4 {
+  margin-left: 10rpx;
+}
+.comBtn.data-v-f4e005f4 {
+  width: 280rpx;
+  height: 90rpx;
+  color: #FFFFFF;
+  background-color: #5393FD;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+}
+

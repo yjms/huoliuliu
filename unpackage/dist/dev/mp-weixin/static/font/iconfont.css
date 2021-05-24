@@ -1,13 +1,78 @@
 @font-face {
-	  font-family: "iconfont";
-	  src: url('@/static/font/iconfont.ttf'); /* IE9 */
-	}
+  font-family: "iconfont";
+  src: url('@/static/font/iconfont.ttf'); /* IE9 */
+}
+
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gjiantous:before {
+  content: "\e7cf";
+}
+
+.icon-xiangji:before {
+  content: "\e619";
+}
+
+.icon-5:before {
+  content: "\e64c";
+}
+
+.icon-chechuan:before {
+  content: "\e760";
+}
+
+.icon-chuan3:before {
+  content: "\e6fb";
+}
+
+.icon-wancheng1:before {
+  content: "\e664";
+}
+
+.icon-wancheng:before {
+  content: "\e633";
+}
+
+.icon-rukuguanli:before {
+  content: "\e628";
+}
+
+.icon-RectangleCopy:before {
+  content: "\e6c2";
+}
+
+.icon-icon-test:before {
+  content: "\e610";
+}
+
+.icon-yunshuzhongwuliu-xianxing:before {
+  content: "\e882";
+}
+
+.icon-yiqianshou:before {
+  content: "\e61f";
+}
+
+.icon-jibenxinxi:before {
+  content: "\e67c";
+}
+
+.icon-dairuku:before {
+  content: "\e70d";
+}
+
+.icon-huoyunzhandizhiguanli:before {
+  content: "\eaa1";
+}
+
+.icon-wode1:before {
+  content: "\e61a";
 }
 
 .icon-jijianfasong-xianxing:before {

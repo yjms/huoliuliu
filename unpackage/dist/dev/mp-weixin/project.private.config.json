@@ -77,6 +77,36 @@
           "pathName": "pages/sendThing/sendThing",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "编辑商品页面",
+          "pathName": "pages/editGoods/editGoods",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人中心页面",
+          "pathName": "pages/centerpage/centerpage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "查询报价页面",
+          "pathName": "pages/selectpage/selectpage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "报价列表页面",
+          "pathName": "pages/sayprice/sayprice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商品列表页面",
+          "pathName": "pages/shoplist/shoplist",
+          "query": "",
+          "scene": null
         }
       ]
     }

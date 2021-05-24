@@ -13,8 +13,8 @@ const _request = (url,option) =>{
 	
 }
 
-const login =(data)=> {return _request('mobile_xiaochengxu.aspx',{data:data})}
-
+const login =(data)=> {return _request('webService.aspx',{data:data})} // 货六六
+// const login =(data)=> {return _request('mobile_xiaochengxu.aspx',{data:data})} // 冠雄
 export {
 	login
 } 

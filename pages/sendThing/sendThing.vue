@@ -16,50 +16,47 @@
 				</view>
 			</view>
 		</view>
-		<view class="nodataBox" v-if="!hasData">
+		<!-- v-if="!hasData" -->
+		<view class="nodataBox" v-if="false">
 			<Nodata></Nodata>
 		</view>
-		<view class="ullist" v-if="hasData">
-			
-			<view class="ulitem row bgWhile" v-for="(it,ix) in yyList" :key="it">
-				<view class="ltops">
-					<text>下单时间:{{it.mo_Time}}</text>
-					<text>付款方式:到付</text>
-				</view>	
-				<view class="flex_col">
-					<view class="leftinfo">
-						<view class="ltop flex_col">
-							<view class="dot">寄</view>
-							<view class="flex1 setstyle">
-								<text class="txtInfo">{{it.mo_fahuorenxingming}} {{it.mo_fahuorenTel}}</text>
-								<text class="txtInfo">{{it.mo_zone_sender}}</text>
-							</view>
-						</view>
-						
-						<view class="headCenter">
-							<text class="iconfont icon-zhuanhuan"></text>
-							<view class="linebox"></view>
-						</view>
-						
-						<view class="lcenter flex_col">
-							<view class="accpte">收</view>
-							<view class="flex1 setstyle">
-								<text class="txtInfo">{{it.mo_shouhuorenxingming}} {{it.mo_shouhuorenTel}}</text>	
-								<text class="txtInfo">{{it.mo_zone_recer}}</text>
-							</view>
-						</view>
-						
-						
+		<!-- hasData -->
+		<view class="ullist" v-if="true">
+			<view class="listBox">
+				<view class="listTop">
+					<view class="ordernum">
+						<text>订单号：HLL10022456523413213</text>
+						<text class="iconfont icon-fuzhicopy12"></text>	
 					</view>
-					<view class="editBox iconfont icon-bianjimian" @click.stop="editAddress(it)"></view>
-					<view class="delBox iconfont icon-shanchu" @click.stop="delOrder(it.mo_id)"></view>
+					<text class="orderStatus">待提货/发货</text>
 				</view>
-				<view class="lfoot">
-					<view>备注 : {{it.mo_qujianbeizhu?it.mo_qujianbeizhu:'无'}}</view>
+				<view class="addBox">
+					<text>深圳宝安区</text>
+					<text class="iconfont icon-gjiantous"></text>
+					<text>马来西亚吉隆坡</text>
+				</view>
+				<view class="timeBox">
+					<text>下单时间：2021-05-19 10：:1:37</text>
+					<text class="jfstatus">代计费</text>
+				</view>
+				<view class="pirceBox">
+					<text>共1KG/0.001CBM,预估</text>
+					<text class="priceTxt">546.00</text>
+				</view>
+				<view class="footBtn">
+					<view class="btnItem">
+						取消订单
+					</view>
+					<view class="btnItem active">
+						修改订单
+					</view>
+					<view class="btnItem active2">
+						物流信息
+					</view>
 				</view>
 			</view>
 			<!-- v-if="moreData" -->
-			<text class="nomore" v-if="moreData">~没有更多数据啦~</text>
+			<text class="nomore" v-if="false">~没有更多数据啦~</text>
 		</view>
 		<view class="address" @click="yuyue">寄</view>
 		
@@ -521,5 +518,94 @@
 	.setstyle{
 		display: flex;
 		flex-direction: column;
+	}
+	//  新加样式
+	.listBox{
+		width: 700upx;
+		height: 410upx;
+		background-color: #FFFFFF;
+		border-radius: 8upx;
+		display: flex;
+		flex-direction: column;
+		padding: 20upx 24upx;
+		box-sizing: border-box;
+	}
+	.listTop{
+		display: flex;
+		font-size: 24upx;
+		color: #888;
+		justify-content: space-between;
+	}
+	.orderStatus{
+		color: $all-font-Tcolor;
+		font-size: 28upx;
+		font-weight: bold;
+	}
+	.addBox{
+		display: flex;
+		align-items: center;
+		font-size: 32upx;
+		font-weight: bold;
+		margin-top: 50upx;
+		margin-bottom: 30upx;
+		.icon-gjiantous{
+			margin: 0 20upx;
+		}
+	}
+	.timeBox{
+		display: flex;
+		align-items: center;
+		color: #888;
+		font-size: 26upx;
+		margin-bottom: 20upx;
+		.jfstatus{
+			margin-left: 15upx;
+			padding: 8upx 18upx;
+			border-radius: 5upx;
+			background-color: #F2F7F5;
+		}
+	}
+	.pirceBox{
+		display: flex;
+		justify-content: flex-end;
+		color: #888;
+		font-size: 26upx;
+		align-items: flex-end;
+	}
+	.priceTxt{
+		margin-left: 10upx;
+		color: #CC7523;
+		font-size: 34upx;
+	}
+	.priceTxt::before{
+		content: "￥";
+		font-size: 24upx;
+	}
+	.footBtn{
+		height: 74upx;
+		// background-color: red;
+		display: flex;
+		align-items: flex-end;
+		border-top: 1upx dashed #dedede;
+		margin-top: 20upx;
+		justify-content: flex-end;
+	}
+	.btnItem{
+		width: 150upx;
+		border: 1upx solid;
+		color: #888;
+		height: 55upx;
+		font-size: 28upx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: 24upx;
+		border-radius: 5upx;
+	}
+	.footBtn>.active{
+		color: $all-font-Tcolor;
+	}
+	.footBtn>.active2{
+		color: #17A05D;
 	}
 </style>

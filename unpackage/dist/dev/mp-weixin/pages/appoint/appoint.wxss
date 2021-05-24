@@ -45,7 +45,6 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  padding-bottom: 200rpx;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -55,6 +54,7 @@
           align-items: center;
   background-color: #F2F2F2;
   padding: 20rpx 0;
+  padding-bottom: 160rpx;
   box-sizing: border-box;
 }
 .hander.data-v-59bd7eec {
@@ -82,6 +82,7 @@
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
+  border-radius: 8rpx;
 }
 .bfcBox > .lineRow.data-v-59bd7eec {
   width: 660rpx;
@@ -104,6 +105,10 @@
   margin-left: 15rpx;
   font-size: 28rpx;
   color: #666;
+}
+.bfcBox > .lineRow .right > .active.data-v-59bd7eec {
+  color: #FFFFFF;
+  background-color: #5393FD;
 }
 .bfcBox > .lineRow .delTxt.data-v-59bd7eec {
   margin-left: 15rpx;
@@ -227,5 +232,45 @@
   background-color: #5393FD;
   font-size: 30rpx;
   border-radius: 8rpx;
+}
+.address > .icon-gjiantous.data-v-59bd7eec {
+  margin: 0 20rpx;
+}
+.pickBox.data-v-59bd7eec {
+  height: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.pickBox picker.data-v-59bd7eec {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  color: #333;
+}
+.pickBox .uni-input.data-v-59bd7eec {
+  text-align: right;
+  font-size: 26rpx;
+}
+.lineRow2.data-v-59bd7eec {
+  height: 120rpx !important;
+}
+.lineRow2 > .tips.data-v-59bd7eec {
+  background-color: #E6A235 !important;
+}
+.setstyle.data-v-59bd7eec {
+  background-color: #FAF6EB;
+  color: #F8BE6F;
+  font-size: 26rpx;
+  padding: 15rpx;
+  box-sizing: border-box;
+  margin: 0 30rpx;
+  border-radius: 8rpx;
+}
+.scipt.data-v-59bd7eec {
+  text-align: right;
 }
 

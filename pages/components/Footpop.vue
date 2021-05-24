@@ -13,91 +13,67 @@
 						{{item}}
 					</view>
 				</view>
-				<view class="remarkarea">
-					<textarea  placeholder="备注说明" maxlength="30" v-model="remarkTxt"/>
-					<text>{{remarkTxt.length}}/30</text>
+				<view class="rowline">
+					<text>长(cm)</text>
+					<input type="text" placeholder="请输入" />
 				</view>
-			</view>
-			<!-- 保价 -->
-			<view class="popBody" v-if="showType==2">
-				<view class="priceBox row flex_col">
-					<text>保价金额</text>
-					<view class="priceIpt flex_col">
-						<input type="text" v-model="bjprice" />
-						<text>元</text>
-					</view>
+				<view class="rowline">
+					<text>宽(cm)</text>
+					<input type="text" placeholder="请输入" />
 				</view>
-			<!-- 	<view class="priceTxt flex_col row">
-					<text class="bjTxt">报价费: </text>
-					<text class="bjNum">150</text>
-				</view> -->
-				<view class="priTip">
-					当快件在运输过程中发生遗失、破损时、我们将在第一时间提供理赔受理
+				<view class="rowline">
+					<text>高(cm)</text>
+					<input type="text" placeholder="请输入" />
 				</view>
-				<view class="sbTip row">
-					申报价值提示
+				<view class="rowline">
+					<text>重量(kg)</text>
+					<input type="text" placeholder="请输入" />
 				</view>
-				<view class="imTip row">
-					<view>1.寄件人交寄物品申报物品价值，并根据申报价值支付保费。</view>
-					<view>2.单票交寄物超过500的快件，寄人应当保价。单票交寄物价值30000以下分别寄件，并分别进行申报价值。</view>
-					<view>3.申报价值快件，赔偿按照实际价值损失赔偿，上限为交寄物的申报价值；如快件未足额保价的，则赔偿金额按照保价率折扣，即赔偿金额=实际价值损失*申报价值/实际价值；未申报价值快件，赔偿上限为500元，但无论如何赔偿范围不包括商业机会、预计收益等间接损失。</view>
+				<view class="rowline">
+					<text>中国HSCode</text>
+					<input type="text" placeholder="请输入" />
+				</view>
+				<view class="rowline">
+					<text>销售链接</text>
+					<input type="text" placeholder="请填写销售链接" />
+				</view>
+				<view class="rowline">
+					<text>用途</text>
+					<input type="text" placeholder="备注信息" />
+				</view>
+				<view class="rowline">
+					<text>申报要素</text>
+					<input type="text" placeholder="申报要素" />
 				</view>
 			</view>
 			
 			<view class="popBody" v-if="showType==1">
-					<view class="ulTitle row" v-if="false">
-						选择物品类型
+				<view class="ulremark row"  v-if="false">
+					<view class="rmkItem" v-for="(item,index) in remark" :key="item" :class="kdType == index+1 ? 'kdact':''" @click="()=>{this.kdType = index + 1}">
+						{{item}}
 					</view>
-					
-					<view class="ullist row" v-if="true">
-						<view class="wpitem" v-for="(item,index) in things" :class="wpType == index+1 ? 'wpact':''" :key="item" @click="()=>{this.wpType = index + 1}">
-							{{item}}
+				</view>
+				<view class="rowline">
+					<text>目的国</text>
+					<view class="right">
+						<!-- <text>点击选择</text> -->
+						<view class="flex1">
+							<picker  @change="bindPickerChange"  range-key="name"  :value="index" :range="array">
+								<view class="uni-input">{{mdcount?mdcount:'请选择'}}</view>
+							</picker>
 						</view>
+						<text class="iconfont icon-youjiantou-copy"></text>
 					</view>
-					
-					<view class="tipTxt row">
-						禁寄物品: 各种枪支弹药、易燃易爆、化学危险品、毒品、各类生化制品、传染性物质、各类非法伪造、侵权物品...
-					</view>
-					
-					<!-- <view class="ygTxt row">
-						预估重量
-					</view> -->
-					
-					<view class="delRow row">
-						<text class="wxtip">注: 实际重量以快递员确定为准</text>
-						<view class="numBox">
-							<view class="runBox" @click="reduce(1)">-</view>
-							<view class="numItem">
-								<input type="text" v-model="wigths"/>
-								<text>kg</text>
-							</view>
-							<view class="runBox" @click="addprice(1)">+</view>
-						</view>
-					</view>
-					
-					<view class="delRow row">
-						<text class="wxtip">注: 实际体积以快递员确定为准</text>
-						<view class="numBox">
-							<view class="runBox"  @click="reduce(2)">-</view>
-							<view class="numItem">
-								<input type="text" v-model="tiji"/>
-								<text>m³</text>
-							</view>
-							<view class="runBox" @click="addprice(2)">+</view>
-						</view>
-					</view>
-					
-					<view class="delRow row">
-						<text class="wxtip">注: 实际件数以快递员确定为准</text>
-						<view class="numBox">
-							<view class="runBox"  @click="reduce(3)">-</view>
-							<view class="numItem">
-								<input type="text" v-model="wpthings"/>
-								<text>件</text>
-							</view>
-							<view class="runBox" @click="addprice(3)">+</view>
-						</view>
-					</view>
+					<!-- <input type="text" placeholder="请输入" /> -->
+				</view>
+				<view class="rowline">
+					<text>申报价值</text>
+					<input type="text" placeholder="请输入" />
+				</view>
+				<!-- <view class="remarkarea">
+					<textarea  placeholder="备注说明" maxlength="30" v-model="remarkTxt"/>
+					<text>{{remarkTxt.length}}/30</text>
+				</view> -->
 			</view>
 			
 			<view class="comBtn" @click="compileCheck">
@@ -120,7 +96,8 @@
 			return{
 				things:["文件","电子类产品","生活用品","服饰","生鲜","食品","易碎品","化妆品","药品","其他"],
 				remark:["请带纸箱","需要爬楼","缺文件袋","来前电话","请带面单","	请带胶袋"],
-				titleList:['选择物品类型重量和体积','保价','对快递员说'],
+				titleList:['选择物品类型重量和体积','保价','其他信息'],
+				array:[{name:"阿富汗",id:1},{name:"越南",id:2},{name:"缅甸",id:3}],
 				wpType:0,// 默认没物品类型0
 				kdType:0,//对快递员说 类型
 				wigths:0,//重量
@@ -128,12 +105,17 @@
 				wpthings:0,// 物品件数
 				remarkTxt:'', // 备注
 				bjprice:'',// 保价多少钱
+				mdcount:"",//目的国名称
 			}
 		},
 		mounted(){
 			
 		},
 		methods:{
+			bindPickerChange(e){
+				// console.log("看看e",e);
+				this.mdcount = this.array[e.detail.value].name; 
+			},
 			updata(obj){
 				// 更新数据
 				console.log("看看obj",obj);
@@ -466,5 +448,33 @@
 		color: #fff;
 		background-color: $all-font-Tcolor;
 		opacity: .8;
+	}
+	// 其他物品样式
+	.rowline{
+		width: 92%;
+		height: 96upx;
+		margin: 0 auto;
+		// background-color: red;
+		align-items: center;
+		display: flex;
+		color: #333;
+		font-size: 30upx;
+		border-bottom: 1upx solid #dedede;
+		text{
+			width: 200upx;
+		}
+		.right{
+			flex: 1;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			// background-color: red;
+			text{
+				width: auto;
+			}
+		}
+	}
+	.popBody>.rowline:last-of-type{
+		border-bottom: none;
 	}
 </style>

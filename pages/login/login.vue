@@ -1,21 +1,22 @@
 <template>
 	<view class="whole">
 		<view class="centerBox" v-show="!isloading">
-			<text class="loginText">{{isforget?'修改密码':'登录'}}</text>
+			<text class="loginText">{{isforget?'注册':'登录'}}</text>
 			<view class="photoBox">
 				<text class="iconfont icon-zhanghao loginicon"></text>
-				<input type="text"  placeholder="账号" v-model="userCount"/>
+				<input type="text"  placeholder="手机号" v-model="userCount"/>
 			</view>
-			<view class="codeBox">
+			<!-- <view class="codeBox">
 				<text class="iconfont icon-mima loginicon"></text>
-				<input type="password" :placeholder="isforget?'输入旧密码':'密码'"  v-model="userPsw"/>
-			</view>
-			<view class="codeBox" v-if="isforget">
+				<input type="password" :placeholder="isforget?'密码':'密码'"  v-model="userPsw"/>
+			</view> -->
+		<!-- 	<view class="codeBox" v-if="isforget">
 				<text class="iconfont icon-mima loginicon"></text>
 				<input type="password" :placeholder="isforget?'输入新密码':'密码'"  v-model="userPsw"/>
-			</view>
-			<button class="loginBtn" @click="login">{{isforget?'确认修改':'登录'}}</button>
-			<!-- <view class="forget">{{isforget?'去登录':'修改密码?'}}</view> -->
+			</view> -->
+			<!-- <button type="default" open-type="getPhoneNumber" @getphonenumber="decryptPhoneNumber">获取手机号</button> -->
+			<button class="loginBtn" @click="getUserInfo" >{{isforget?'确定':'注册并登录'}}</button>
+			<!-- <view class="forget" @click="forgetPsw">{{isforget?'去登录':'注册'}}</view> -->
 		</view>
 		<view class="loading" v-show="isloading">
 			<image src="../../static/image/loading.gif" mode="widthFix"></image>
@@ -34,6 +35,7 @@
 				isloading:false,
 				isforget:false,// 是否修改密码
 				newPsw:'',// 新密码
+				openid:'',// openid
 			}
 		},
 		created(){
@@ -44,40 +46,58 @@
 			// }
 		},
 		onLoad() {
-			
+			this.login();
 		},
 		methods: {
-			// forgetPsw(){
-			// 	// 忘记密码 或者 去登录
-			// 	this.isforget = !this.isforget;
-			// },
-			login(){
+			isPoneAvailable(val) {
+				// 验证手机号
+				var myreg=/^[1][3,4,5,6,7,8,9][0-9]{9}$/;
+				if (!myreg.test(val)) {
+					return false;
+				} else {
+					return true;
+				}
+			},
+			getUserInfo(e){
 				// 点击登录
-				if(!this.userCount.trim()) {
-					this.$tool.showTip("请输入账号！") 
+				if(!this.isPoneAvailable(this.userCount.trim())) {
+					this.$tool.showTip("请正确手机号！") 
 					return
 				}
-				if(!this.userPsw.trim()){
-					this.$tool.showTip("请输入密码！")
-					return
-				}
-				if(this.isforget){ // 修改密码
-					this.resetPsw();
-					return
-				}
+				// if(!this.userPsw.trim()){
+				// 	this.$tool.showTip("请输入密码！")
+				// 	return
+				// }
 				let that = this;
-				if(!this.$tool.getstorage("openid")){
+				uni.getUserProfile({
+				      desc: 'Wexin', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+				      success: (res) => {
+						// console.log("看看res",res);
+						this.registLogin(res.userInfo);
+				      }
+				    })
+			},
+			forgetPsw(){
+				// 忘记密码 或者 去登录
+				// this.isforget = !this.isforget;
+			},
+			login(){
+					let that = this;
+					if(this.$tool.getstorage("openid")){
+						this.openid = this.$tool.getstorage("openid");
+						return
+					}
 					uni.login({
 						success(res){
 							console.log("code",res);
 							let dat = {
-								functionType:22,
-								Code:res.code
+								functionType:38,
+								Code:res.code,
 							}
 							that.$api(dat).then(res=>{
 								if(res.data.MsgID==1){
 									let openid = res.data.Msg;
-									that.gologin(openid);
+									that.openid = openid;
 									that.$tool.setstorage("openid",openid);
 								}else{
 									that.$tool.showTip(res.data.Msg)
@@ -85,47 +105,32 @@
 							})
 						}
 					})	
-						
-				}else{
-					that.gologin(that.$tool.getstorage("openid"));
-				}
-              },
-			updataPsw(){
-				if(!this.newPsw.trim()){
-					this.$tool.showTip("请输入新密码！")
-					return
-				}
+             },
+			registLogin(obj){
+				//注册登录
+				// console.log("obj",obj);
+				// return
 				let dat = {
-					functionType:8,
-					xieyikehuID:'',
-					oldPwd:this.userPsw,
-					newPwd:this.newPsw
+					functionType:9,
+					openID:this.openid,
+					nickname:obj.nickName,
+					sex:'',
+					province:obj.province,
+					city:obj.city,
+					headimgurl:obj.avatarUrl,
+					mobile:this.userCount
 				}
-				this.$api().then(res=>{
-					
-				})
-			},
-			gologin(openid){
-				let dat = {
-					functionType:4,
-					vipUserName:this.userCount,
-					vipPwd:this.userPsw,
-					weixinID:openid
-				}
-				login(dat).then(res=>{
-					// console.log("登录信息",res);
+				this.$api(dat).then(res=>{
 					if(res.data.MsgID==1){
 						this.$tool.showTip("登录成功");
 						let rel = JSON.parse(res.data.Msg); 
-						this.$tool.setstorage("xykh_id",rel.ds[0].xykh_id);
+						this.$tool.setstorage("userInfo",rel);
 						setTimeout(()=>{
 							this.$tool.jump_back();
 						},500);
 					}else{
-						this.$tool.showTip("账号或密码错误！");
+						this.$tool.showTip(res.data.Msg);
 					}
-				},err=>{
-					console.log("失败信息",err);
 				})
 			},
 			jump_nav(){
