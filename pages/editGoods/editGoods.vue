@@ -62,7 +62,7 @@
 		
 		<view class="rowBox rowImg">
 			<text>商品图片</text>
-			<view class="imgbox">
+			<view class="imgbox" @click="chooseImage">
 				<text class="iconfont icon-xiangji"></text>
 			</view>
 		</view>
@@ -126,6 +126,26 @@
 			checkPrice(){
 				// 选择目的国申报价值
 				this.showType = 1;
+			},
+			chooseImage(){
+				// 选择图片上传
+				uni.chooseImage({
+				    success: (chooseImageRes) => {
+				        const tempFilePaths = chooseImageRes.tempFilePaths;
+				        uni.uploadFile({
+							/* pwd = 'zzxxyyffttdgchdbggf1kisjhen'; */
+				            url: 'https://www.hyk56.com/webService/function100?pwd=zzxxyyffttdgchdbggf1kisjhen', //仅为示例，非真实的接口地址
+				            filePath: tempFilePaths[0],
+							fileType:"image",
+				            name: 'file',
+				            formData: {
+				            },
+				            success: (uploadFileRes) => {
+				                console.log("这是打印",uploadFileRes.data);
+				            }
+				        });
+				    }
+				});
 			}
 		}
 	}

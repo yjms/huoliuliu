@@ -128,7 +128,7 @@
 				<text class="ygtxt">预估</text>
 				<text class="ygjtxt">￥638.00</text>
 			</view>
-			<view class="rightFoot">
+			<view class="rightFoot" @click="submit">
 				提交订单
 			</view>
 		</view>
@@ -149,9 +149,13 @@
 			this.getDate();
 		},
 		methods: {
+			submit(){
+				// 提交订单
+				this.$tool.jump_red("/pages/orderDel/orderDel")
+			},
 			shopInfo(){
 				// 去选择商品信息
-				console.log("进来了");
+				// console.log("进来了");
 				this.$tool.jump_nav(`/pages/shoplist/shoplist`)
 			},
 			checkAddress(val){

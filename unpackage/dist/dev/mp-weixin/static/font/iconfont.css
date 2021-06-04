@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "iconfont";
-  src: url('@/static/font/iconfont.ttf'); /* IE9 */
-}
+		  font-family: "iconfont";
+		  src: url('@/static/font/iconfont.ttf'); /* IE9 */
+		}
 
 .iconfont {
   font-family: "iconfont" !important;
@@ -9,6 +9,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chenggong:before {
+  content: "\e615";
+}
+
+.icon-quxiao:before {
+  content: "\e644";
 }
 
 .icon-gjiantous:before {

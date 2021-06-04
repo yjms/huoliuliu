@@ -291,9 +291,13 @@ var _default =
     this.getDate();
   },
   methods: {
+    submit: function submit() {
+      // 提交订单
+      this.$tool.jump_red("/pages/orderDel/orderDel");
+    },
     shopInfo: function shopInfo() {
       // 去选择商品信息
-      console.log("进来了");
+      // console.log("进来了");
       this.$tool.jump_nav("/pages/shoplist/shoplist");
     },
     checkAddress: function checkAddress(val) {

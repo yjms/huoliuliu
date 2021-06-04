@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Footpop = function Footpop() {__webpack_require__.e(/*! require.ensure | pages/components/Footpop */ "pages/components/Footpop").then((function () {return resolve(__webpack_require__(/*! ../components/Footpop.vue */ 168));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Footpop = function Footpop() {__webpack_require__.e(/*! require.ensure | pages/components/Footpop */ "pages/components/Footpop").then((function () {return resolve(__webpack_require__(/*! ../components/Footpop.vue */ 184));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -258,7 +258,28 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     checkPrice: function checkPrice() {
       // 选择目的国申报价值
       this.showType = 1;
+    },
+    chooseImage: function chooseImage() {
+      // 选择图片上传
+      uni.chooseImage({
+        success: function success(chooseImageRes) {
+          var tempFilePaths = chooseImageRes.tempFilePaths;
+          uni.uploadFile({
+            /* pwd = 'zzxxyyffttdgchdbggf1kisjhen'; */
+            url: 'https://www.hyk56.com/webService/function100?pwd=zzxxyyffttdgchdbggf1kisjhen', //仅为示例，非真实的接口地址
+            filePath: tempFilePaths[0],
+            fileType: "image",
+            name: 'file',
+            formData: {},
+
+            success: function success(uploadFileRes) {
+              console.log("这是打印", uploadFileRes.data);
+            } });
+
+        } });
+
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

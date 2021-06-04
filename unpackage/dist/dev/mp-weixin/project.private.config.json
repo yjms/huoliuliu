@@ -107,6 +107,18 @@
           "pathName": "pages/shoplist/shoplist",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "下单成功页面",
+          "pathName": "pages/orderDel/orderDel",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单最细详情",
+          "pathName": "pages/orderDels/orderDels",
+          "query": "",
+          "scene": null
         }
       ]
     }

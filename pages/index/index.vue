@@ -111,9 +111,7 @@
 		},
 		created(){
 			// this.$tool.set
-			let array = [1, 2, 3, 4];
-			let set = new Set(array);
-			console.log("set",set)
+			
 		},
 		mounted(){
 			// console.log(this.$api)
@@ -148,28 +146,26 @@
 				this.$tool.setstorage("pram","");
 				this.$tool.setstorage("pram2","");
 				let userinfo = this.$tool.getstorage("userInfo");
-				if(nav=="other"&& !userinfo ){ // 查看库存 和发货明细需要登录
-					this.$tool.jump_nav("/pages/login/login")
-					return
-				}
+				// if(nav=="other"&& !userinfo ){ // 查看库存 和发货明细需要登录
+				// 	this.$tool.jump_nav("/pages/login/login")
+				// 	return
+				// }
 				if(nav == "other"){
 					this.$tool.jump_nav('/pages/sendThing/sendThing');
 					return
 				}
-				if(nav == 4 || nav == 5 ||  nav == 3){
-					this.$tool.setstorage("pageType",nav);
-					this.$tool.jump_nav(`/pages/checkSite/checkSite?ix=${nav}`);
-					return;
-				}
-				let arr = ["/pages/appoint/appoint",
-						   `/pages/logisticsinfo/logisticsinfo`,
-						   `/pages/orderlist/orderlist?ix=${nav}`,
-						   `/pages/checkSite/checkSite?ix=${nav}`,
+				// if(nav == 4 || nav == 5 ||  nav == 3){
+				// 	this.$tool.setstorage("pageType",nav);
+				// 	this.$tool.jump_nav(`/pages/checkSite/checkSite?ix=${nav}`);
+				// 	return;
+				// }
+				let arr = ["/pages/selectpage/selectpage",
+						   `/pages/logisticsinfo/logisticsinfo`
 				]
-				if(nav == 2){
-					this.$tool.jump_switch(`/pages/logisticsinfo/logisticsinfo`);
-					return
-				}
+				// if(nav == 2){
+				// 	this.$tool.jump_switch(`/pages/logisticsinfo/logisticsinfo`);
+				// 	return
+				// }
 				this.$tool.jump_nav(arr[nav - 1]);
 			},
 			jump_nav(){

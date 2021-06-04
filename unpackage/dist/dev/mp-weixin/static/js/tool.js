@@ -31,6 +31,11 @@ class tools {
 			animationDuration: 300
 		})
 	}
+	swith_nav(url){// 导航栏跳转
+		uni.switchTab({
+			url: `${url}`,	
+		})
+	}
 	jump_back(url) { // 返回 传数字
 		uni.navigateBack({
 			delta: `${url}`,
@@ -125,4 +130,5 @@ export default {
 	setstorage:(new tools).setstorage,
 	getstorage:(new tools).getstorage,
 	getHeight:(new tools).getHeight,
+	swith_nav:(new tools).swith_nav,
 }

@@ -14,7 +14,7 @@
 			</view>
 		</view>
 		
-		<view class="centerBox">
+		<view class="centerBox" @click="showHide">
 			<view class="iconBox">
 				<text class="iconfont icon-chuan3"></text>
 			</view>

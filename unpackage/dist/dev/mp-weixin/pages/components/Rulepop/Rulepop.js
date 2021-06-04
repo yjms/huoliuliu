@@ -146,6 +146,10 @@ var _default =
     };
   },
   methods: {
+    createOrder: function createOrder() {
+      // 创建订单
+      this.$tool.jump_nav("/pages/appoint/appoint");
+    },
     showHide: function showHide() {
       this.popShow = !this.popShow;
     } } };exports.default = _default;

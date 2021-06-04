@@ -16,7 +16,9 @@
     "pages/selectpage/selectpage",
     "pages/sayprice/sayprice",
     "pages/components/Rulepop/Rulepop",
-    "pages/shoplist/shoplist"
+    "pages/shoplist/shoplist",
+    "pages/orderDel/orderDel",
+    "pages/orderDels/orderDels"
   ],
   "subPackages": [],
   "window": {

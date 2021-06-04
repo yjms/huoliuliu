@@ -12,7 +12,7 @@
 						<text class="iconfont icon-lianxiwomen"></text>
 						<text class="kefuTxt">联系客服</text>
 					</view>
-					<view class="rightBtn">
+					<view class="rightBtn" @click="createOrder">
 						立即下单
 					</view>
 				</view>
@@ -30,6 +30,10 @@
 			}
 		},
 		methods: {
+			createOrder(){
+				// 创建订单
+				this.$tool.jump_nav("/pages/appoint/appoint")
+			},
 			showHide(){
 				this.popShow = !this.popShow;
 			}

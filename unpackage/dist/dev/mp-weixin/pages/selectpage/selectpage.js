@@ -204,14 +204,268 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      startAdd: "", // 出发地
+      endAdd: "", // 收货地
+      thingType: "", // 货物类型
+      thingWigth: 0, // 货物重量
+      thingTiji: 0, // 货物体积
+      typeList: [
+      { name: "普货", id: 1 },
+      { name: "内置电池", id: 2 },
+      { name: "配套电池", id: 3 },
+      { name: "纺织品", id: 4 },
+      { name: "弱磁", id: 5 }],
+
+      startArr: [
+      [
+      { name: "深圳", id: "1" }],
+
+      [
+      { name: "宝安区", id: "1" }],
+
+      [
+      { name: "宝安区", id: "1" }]],
 
 
+      endArr: [
+      [
+      { name: "马来西亚", id: "1" }],
+
+      [
+      { name: "吉隆坡", id: "1" }]],
+
+
+      startObj: null, // 出发地对象
+      endObj: null, // 收货地对象
+      typeObj: null // 货物类型对象
+    };
   },
-  methods: {} };exports.default = _default;
+  created: function created() {
+    this.getCountry();
+    this.initCity(1, "pro"); // 第一次调用是获取省份
+  },
+  methods: {
+    // 中国的country_ID:1
+    getCountry: function getCountry() {var _this = this;
+      //  获取国家
+      var arr = this.endArr.concat();
+      var dat = {
+        functionType: 26 };
+
+      this.$api(dat).then(function (res) {
+        // console.log("res",res.data);
+        if (res.data.MsgID == 1) {
+          console.log(JSON.parse(res.data.Msg));
+          arr[0] = JSON.parse(res.data.Msg).ds;
+          _this.endArr = arr;
+          _this.initCity(_this.endArr[0][0].country_ID); //根据国家id获取国家城市
+        } else {
+          _this.$tool.showTip(res.data.Msg);
+        }
+      });
+    },
+    initCity: function initCity(id) {var _this2 = this;var pro = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+      //  初始化国家城市
+      var arr = pro === "pro" ? this.startArr.concat() : this.endArr.concat();
+      var dat = {
+        functionType: 2,
+        countryID: id };
+
+      this.$api(dat).then(function (res) {
+        if (res.data.MsgID == 1) {
+          var type = toString.call(JSON.parse(res.data.Msg).ds);
+          if (type != "[object Array]") return;
+          var zjArr = JSON.parse(res.data.Msg).ds;
+          zjArr = zjArr.map(function (it, ix) {
+            it.country_name_ch = it.pName;
+            return it;
+          });
+          if (pro == "pro") {
+            arr[0] = zjArr;
+            _this2.startArr = arr;
+            _this2.initCitys(_this2.startArr[0][0].PID);
+          } else {
+            arr[1] = zjArr;
+            _this2.endArr = arr;
+          }
+
+          // ? this.startArr
+        } else {
+          _this2.$tool.showTip(res.data.Msg);
+        }
+      });
+    },
+    initCitys: function initCitys(id) {var _this3 = this;
+      //  获取中国的城市
+      var arr = this.startArr.concat();
+      var dat = {
+        functionType: 3,
+        ProvinceID: id };
+
+      this.$api(dat).then(function (res) {
+        // console.log("res",res.data);
+        if (res.data.MsgID == 1) {
+          var zjArr = JSON.parse(res.data.Msg).ds;
+          zjArr = zjArr.map(function (it, ix) {
+            it.country_name_ch = it.cName;
+            return it;
+          });
+          arr[1] = zjArr;
+          _this3.startArr = arr;
+          console.log("this.startArr", _this3.startArr);
+          _this3.initArea(_this3.startArr[1][0].CID); //根据国家id获取国家城市
+        } else {
+          _this3.$tool.showTip(res.data.Msg);
+        }
+      });
+    },
+    initArea: function initArea(id) {var _this4 = this;
+      //  获取城市所有的区域
+      var arr = this.startArr.concat();
+      var dat = {
+        functionType: 4,
+        CityID: id };
+
+      this.$api(dat).then(function (res) {
+        // console.log("res",res.data);
+        if (res.data.MsgID == 1) {
+          var zjArr = JSON.parse(res.data.Msg).ds;
+          zjArr = zjArr.map(function (it, ix) {
+            it.country_name_ch = it.UName;
+            return it;
+          });
+          arr[2] = zjArr;
+          _this4.startArr = arr;
+        } else {
+          _this4.$tool.showTip(res.data.Msg);
+        }
+      });
+    },
+    chinaColumn: function chinaColumn(e) {
+      //  改变中国的省 市
+      if (e.detail.column == 0) {
+        this.initCitys(this.startArr[0][e.detail.value].PID);
+      } else if (e.detail.column == 1) {
+        this.initArea(this.startArr[1][e.detail.value].CID);
+      }
+
+    },
+    columnchange: function columnchange(e) {
+      //  改变国家 重新计算发货地
+      if (e.detail.column == 0) {
+        this.initCity(this.endArr[0][e.detail.value].country_ID);
+      }
+    },
+    pickerStart: function pickerStart(e) {
+      // 选择出发地
+      var obj = {};
+      var arr = e.detail.value;
+      obj.pro = this.startArr[0][arr[0]];
+      obj.city = this.startArr[1][arr[1]];
+      obj.area = this.startArr[2][arr[2]];
+      this.startObj = obj;
+    },
+    pickerEnd: function pickerEnd(e) {
+      // 选择收货地
+      var obj = {};
+      var arr = e.detail.value;
+      obj.pro = this.endArr[0][arr[0]];
+      obj.city = this.endArr[1][arr[1]];
+      this.endObj = obj;
+    },
+    pickerType: function pickerType(e) {
+      // console.log("1111",e);
+      this.typeObj = this.typeList[e.detail.value];
+    },
+    goOrder: function goOrder() {
+      //去下单
+      if (!this.startObj) {
+        this.$tool.showTip("请选择出发地!");
+        return;
+      }
+      if (!this.endObj) {
+        this.$tool.showTip("请选择收货地!");
+        return;
+      }
+      if (!this.typeObj) {
+        this.$tool.showTip("请选择货物类型!");
+        return;
+      }
+      if (!this.thingWigth) {
+        this.$tool.showTip("请填写重量!");
+        return;
+      }
+      if (!this.thingTiji) {
+        this.$tool.showTip("请填写体积!");
+        return;
+      }
+      var dat = {
+        functionType: "33",
+        ckid_sender: "",
+        ckid_recer: "",
+        huowuleibie: "",
+        weight: "",
+        volume: "" };
+
+      this.$api(dat).then(function (res) {
+        console.log("获取报价信息", res.data);
+      });
+      // this.$tool.jump_nav("/pages/sayprice/sayprice");
+    },
+    getckList: function getckList() {
+      // 根据国家id 获取仓库
+      var dat = {};
+
+
+      this.$api(dat).then(function (res) {
+        console.log("所有仓库", res.data);
+      });
+    },
+    reduce: function reduce(type) {
+      // 减 重量体积
+      switch (type) {
+        case 1:
+          // console.log("减重量")
+          this.thingWigth = this.thingWigth > 0 ? --this.thingWigth : this.thingWigth;
+          break;
+        case 2:
+          // console.log("减体积")
+          this.thingTiji = this.thingTiji > 0 ? --this.thingTiji : this.thingTiji;
+          break;}
+
+    },
+    add: function add(type) {
+      // 加 重量体积
+      switch (type) {
+        case 1:
+          // console.log("加重量")
+          this.thingWigth = ++this.thingWigth;
+          break;
+        case 2:
+          // console.log("加体积")
+          this.thingTiji = ++this.thingTiji;
+          break;}
+
+    } } };exports.default = _default;
 
 /***/ }),
 

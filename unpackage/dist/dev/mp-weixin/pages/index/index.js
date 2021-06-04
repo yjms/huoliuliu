@@ -321,10 +321,22 @@ var _require = __webpack_require__(/*! @/static/js/require.js */ 12); //
 //
 var _default = { onShareAppMessage: function onShareAppMessage(res) {if (res.from === 'button') {// 来自页面内分享按钮
       console.log(res.target);}return { title: '华秀物流', path: '/pages/index/index' };}, data: function data() {return { title: '这是首页' };}, created: function created() {// this.$tool.set
-    var array = [1, 2, 3, 4];var set = new Set(array);console.log("set", set);}, mounted: function mounted() {// console.log(this.$api)
+  }, mounted: function mounted() {// console.log(this.$api)
   }, onLoad: function onLoad() {this.getopenid();}, methods: { getopenid: function getopenid() {var that = this;if (!this.$tool.getstorage("openid")) {uni.login({ success: function success(res) {var dat = { functionType: 38, Code: res.code };that.$api(dat).then(function (res) {if (res.data.MsgID == 1) {var openid = res.data.Msg;that.$tool.setstorage("openid", openid);} else {that.$tool.showTip(res.data.Msg);}});} });}}, jump: function jump(nav) {// console.log(nav);
-      this.$tool.setstorage("pram", "");this.$tool.setstorage("pram2", "");var userinfo = this.$tool.getstorage("userInfo");if (nav == "other" && !userinfo) {// 查看库存 和发货明细需要登录
-        this.$tool.jump_nav("/pages/login/login");return;}if (nav == "other") {this.$tool.jump_nav('/pages/sendThing/sendThing');return;}if (nav == 4 || nav == 5 || nav == 3) {this.$tool.setstorage("pageType", nav);this.$tool.jump_nav("/pages/checkSite/checkSite?ix=".concat(nav));return;}var arr = ["/pages/appoint/appoint", "/pages/logisticsinfo/logisticsinfo", "/pages/orderlist/orderlist?ix=".concat(nav), "/pages/checkSite/checkSite?ix=".concat(nav)];if (nav == 2) {this.$tool.jump_switch("/pages/logisticsinfo/logisticsinfo");return;}this.$tool.jump_nav(arr[nav - 1]);}, jump_nav: function jump_nav() {tools.jump_nav('/pages/checklogistics/checklogistics');}, linkOur: function linkOur() {uni.makePhoneCall({ phoneNumber: '0738-6608' //仅为示例
+      this.$tool.setstorage("pram", "");this.$tool.setstorage("pram2", "");var userinfo = this.$tool.getstorage("userInfo"); // if(nav=="other"&& !userinfo ){ // 查看库存 和发货明细需要登录
+      // 	this.$tool.jump_nav("/pages/login/login")
+      // 	return
+      // }
+      if (nav == "other") {this.$tool.jump_nav('/pages/sendThing/sendThing');return;} // if(nav == 4 || nav == 5 ||  nav == 3){
+      // 	this.$tool.setstorage("pageType",nav);
+      // 	this.$tool.jump_nav(`/pages/checkSite/checkSite?ix=${nav}`);
+      // 	return;
+      // }
+      var arr = ["/pages/selectpage/selectpage", "/pages/logisticsinfo/logisticsinfo"]; // if(nav == 2){
+      // 	this.$tool.jump_switch(`/pages/logisticsinfo/logisticsinfo`);
+      // 	return
+      // }
+      this.$tool.jump_nav(arr[nav - 1]);}, jump_nav: function jump_nav() {tools.jump_nav('/pages/checklogistics/checklogistics');}, linkOur: function linkOur() {uni.makePhoneCall({ phoneNumber: '0738-6608' //仅为示例
       });} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
